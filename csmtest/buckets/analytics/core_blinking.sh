@@ -74,7 +74,7 @@ systemctl restart csmd-master
 sleep 60
 
 #eventually run analytics
-/opt/ibm/csm/tools/API_Statistics.py > ${TEMP_LOG} 2>&1
+python /opt/ibm/csm/tools/API_Statistics.py > ${TEMP_LOG} 2>&1
 #this will put things into reports
 # ie: /opt/ibm/csm/tools/Reports/Master_Reports/var/log/ibm/csm
 

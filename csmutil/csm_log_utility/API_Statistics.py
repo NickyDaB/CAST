@@ -10,6 +10,7 @@ from datetime import datetime
 import argparse
 
 sys.path.insert(0, './Helper_Files')
+sys.path.insert(0, '/opt/ibm/csm/tools/Helper_Files')
 
 import Log_Object as LO
 from Aggregator_Stat import compute_CSM_Aggregator_stats

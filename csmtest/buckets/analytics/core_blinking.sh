@@ -69,8 +69,12 @@ mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/csm_master_first_test.
 #restart the master daemon to reset the main log file
 systemctl restart csmd-master
 
+#gotta wait to make sure master has been brought back up
+#find a better way
+sleep 60
+
 #eventually run analytics
-/opt/ibm/csm/tools/API_Statistics.py
+/opt/ibm/csm/tools/API_Statistics.py > ${TEMP_LOG} 2>&1
 #this will put things into reports
 # ie: /opt/ibm/csm/tools/Reports/Master_Reports/var/log/ibm/csm
 

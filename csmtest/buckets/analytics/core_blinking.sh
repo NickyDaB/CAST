@@ -70,7 +70,7 @@ mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/csm_master_first_test.
 systemctl restart csmd-master
 
 #eventually run analytics
-/opt/ibm/csm/tools/python API_Statistics.py
+/opt/ibm/csm/tools/API_Statistics.py
 #this will put things into reports
 # ie: /opt/ibm/csm/tools/Reports/Master_Reports/var/log/ibm/csm
 

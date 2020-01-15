@@ -43,12 +43,38 @@ echo "------------------------------------------------------------" >> ${LOG}
 date >> ${LOG}
 echo "------------------------------------------------------------" >> ${LOG}
 
+#Important to touch the logs
+#this will cut the current log
+/opt/ibm/csm/sbin/rotate-log-file.sh /etc/ibm/csm/csm_master.cfg
+#it will always save as csm_master.log.old.1
+mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/csm_master_pre_core_blinking_tests.log
+#restart the master daemon to reset the main log file
+systemctl restart csmd-master
+
+#gotta wait to make sure master has been brought back up
+#find a better way
+sleep 60
 
 # Test Case 1: core blinking
 helper_files/testing.sh 100 > $TEMP_LOG 2>&1
 check_return_exit $? 0 "Test Case 1: Calling testing.sh"
 
 #rm -f ${TEMP_LOG}
+
+#Important to touch the logs for analytics
+#cut the current log
+/opt/ibm/csm/sbin/rotate-log-file.sh /etc/ibm/csm/csm_master.cfg
+#it will always save as csm_master.log.old.1
+mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/csm_master_first_test.log
+#restart the master daemon to reset the main log file
+systemctl restart csmd-master
+
+#eventually run analytics
+/opt/ibm/csm/tools/python API_Statistics.py
+#this will put things into reports
+# ie: /opt/ibm/csm/tools/Reports/Master_Reports/var/log/ibm/csm
+
+
 
 
 echo "------------------------------------------------------------" >> ${LOG}

@@ -47,12 +47,13 @@ echo "------------------------------------------------------------" >> ${LOG}
 #this will cut the current log
 /opt/ibm/csm/sbin/rotate-log-file.sh /etc/ibm/csm/csm_master.cfg
 #it will always save as csm_master.log.old.1
-mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/csm_master_pre_core_blinking_tests.log
+mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/FVT_ANALYTICS_csm_master_pre_core_blinking_tests.log
 #restart the master daemon to reset the main log file
 systemctl restart csmd-master
 
 #gotta wait to make sure master has been brought back up
 #find a better way
+echo "Restarting Master daemon" >> ${TEMP_LOG}
 sleep 60
 
 # Test Case 1: core blinking
@@ -65,12 +66,13 @@ check_return_exit $? 0 "Test Case 1: Calling testing.sh"
 #cut the current log
 /opt/ibm/csm/sbin/rotate-log-file.sh /etc/ibm/csm/csm_master.cfg
 #it will always save as csm_master.log.old.1
-mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/csm_master_first_test.log
+mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/FVT_ANALYTICS_csm_master_first_test.log
 #restart the master daemon to reset the main log file
 systemctl restart csmd-master
 
 #gotta wait to make sure master has been brought back up
 #find a better way
+echo "Restarting Master daemon" >> ${TEMP_LOG}
 sleep 60
 
 #eventually run analytics

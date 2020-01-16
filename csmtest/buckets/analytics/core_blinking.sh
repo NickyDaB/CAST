@@ -47,7 +47,7 @@ echo "------------------------------------------------------------" >> ${LOG}
 #this will cut the current log
 /opt/ibm/csm/sbin/rotate-log-file.sh /etc/ibm/csm/csm_master.cfg
 #it will always save as csm_master.log.old.1
-mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/FVT_ANALYTICS_csm_master_pre_core_blinking_tests.log
+mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/fvt_analytics/csm_master_pre_core_blinking_tests.log
 #restart the master daemon to reset the main log file
 systemctl restart csmd-master
 
@@ -66,7 +66,7 @@ check_return_exit $? 0 "Test Case 1: Calling testing.sh"
 #cut the current log
 /opt/ibm/csm/sbin/rotate-log-file.sh /etc/ibm/csm/csm_master.cfg
 #it will always save as csm_master.log.old.1
-mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/FVT_ANALYTICS_csm_master_first_test.log
+mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/fvt_analytics/csm_master_first_test.log
 #restart the master daemon to reset the main log file
 systemctl restart csmd-master
 
@@ -76,7 +76,7 @@ echo "Restarting Master daemon" >> ${TEMP_LOG}
 sleep 60
 
 #eventually run analytics
-python /opt/ibm/csm/tools/API_Statistics.py > ${TEMP_LOG} 2>&1
+python /opt/ibm/csm/tools/API_Statistics.py -p /var/log/ibm/csm/fvt_analytics > ${TEMP_LOG} 2>&1
 #this will put things into reports
 # ie: /opt/ibm/csm/tools/Reports/Master_Reports/var/log/ibm/csm
 

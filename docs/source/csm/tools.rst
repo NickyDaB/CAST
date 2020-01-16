@@ -27,22 +27,24 @@ The script also captures job ID collisions when start and end API's do not match
 .. code-block:: none
 
 	[root@c650f03p41 tools]# python API_Statistics.py -h
-	usage: API_Statistics.py [-h] [-p path] [-s start] [-e end] [-o order]
+	usage: API_Statistics.py [-h] [-p path] [-a analytics] [-s start] [-e end] [-o order]
 	                         [-r reverse]
 
 	A tool for parsing daemon logs for API statistics.
 
 	optional arguments:
-	  -h, --help  show this help message and exit
-	  -p path     The directory path to where the logs are located. Defaults to:
-	              '/var/log/ibm/csm'
-	  -s start    start of search range. Defaults to: '1000-01-01 00:00:00.0000'
-	  -e end      end of search range. Defaults to: '9999-01-01 00:00:00.0000'
-	  -o order    order the results by a field. Defaults to alphabetical by API
-	              name. Valid values: 0 = alphabetical, 1 = Frequency, 2 = Mean, 3
-	              = Max, 4 = Min, 5 = Std
-	  -r reverse  reverse the order of the data. Defaults to 0. Set to 1 to turn
-	              on.
+	  -h, --help    show this help message and exit
+	  -p path       The directory path to where the logs are located. Defaults to:
+	                '/var/log/ibm/csm'
+      -a analytics  The directory path to where the results are placed. Defaults to:
+                    '/opt/ibm/csm/tools/Reports'
+	  -s start      start of search range. Defaults to: '1000-01-01 00:00:00.0000'
+	  -e end        end of search range. Defaults to: '9999-01-01 00:00:00.0000'
+	  -o order      order the results by a field. Defaults to alphabetical by API
+	                name. Valid values: 0 = alphabetical, 1 = Frequency, 2 = Mean, 3
+	                = Max, 4 = Min, 5 = Std
+	  -r reverse    reverse the order of the data. Defaults to 0. Set to 1 to turn
+	                on.
 
 
 
@@ -88,6 +90,8 @@ There are three ways of running the logs with time formats:
 
 
 .. note:: As of CSM 1.4 the time ranges of the script has been updated to use flags. 
+
+.. note:: The time range search filter of this tool filters by the time stamp of the log file. It does not filter inside the log file. 
 
 Output
 ^^^^^^

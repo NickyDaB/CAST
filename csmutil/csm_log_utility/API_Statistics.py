@@ -29,11 +29,14 @@ reverse_order = False;
 
 
 logs_path = ""
+reports_path = ""
 
 parser = argparse.ArgumentParser(
     description='''A tool for parsing daemon logs for API statistics.''')
 parser.add_argument( '-p', metavar='path', dest='directory_path', default=None,
     help='The directory path to where the logs are located. Defaults to: \'/var/log/ibm/csm\'')
+parser.add_argument( '-a', metavar='analytics', dest='analytics_path', default=None,
+    help='The directory path to where the results are placed. Defaults to: \'/opt/ibm/csm/tools/Reports\'')
 parser.add_argument( '-s', metavar='start', dest='start_arg', default=None,
     help='start of search range. Defaults to: \'1000-01-01 00:00:00.0000\'')
 parser.add_argument( '-e', metavar='end', dest='end_arg', default=None,
@@ -48,7 +51,13 @@ args = parser.parse_args()
 if(args.directory_path):
     logs_path = args.directory_path
 else:
-    logs_path = "/var/log/ibm/csm"   
+    logs_path = "/var/log/ibm/csm" 
+
+#Default location for the analytics results, unless a user supplies a path
+if(args.analytics_path):
+    reports_path = args.analytics_path
+else:
+    reports_path = "/opt/ibm/csm/tools/Reports"    
 
 #---------- Takes in user Command Line Arguments----------
 # Format: YYYY-MM-DD HH:MM::SS
@@ -90,19 +99,19 @@ sys.path.insert(0, logs_path)
 def handle_file(filename):
     if "compute" in filename and ".log" in filename:
         start = time.time()
-        compute_CSM_Compute_stats(filename,start_datetime,end_datetime, order_by, reverse_order)
+        compute_CSM_Compute_stats(filename,start_datetime,end_datetime, order_by, reverse_order, reports_path)
         print 'Run Time: ' + str(time.time() - start) + '\n'
     elif "aggregator" in filename and ".log" in filename:
         start = time.time()
-        compute_CSM_Aggregator_stats(filename,start_datetime, end_datetime, order_by, reverse_order)
+        compute_CSM_Aggregator_stats(filename,start_datetime, end_datetime, order_by, reverse_order, reports_path)
         print 'Run Time: ' + str(time.time() - start) + '\n'
     elif "master" in filename and ".log" in filename:
         start = time.time()
-        compute_CSM_Master_stats(filename,start_datetime,end_datetime, order_by, reverse_order)
+        compute_CSM_Master_stats(filename,start_datetime,end_datetime, order_by, reverse_order, reports_path)
         print 'Run Time: ' + str(time.time() - start) + '\n'
     elif "utility" in filename and ".log" in filename:
         start = time.time()
-        compute_CSM_Utility_stats(filename,start_datetime,end_datetime, order_by, reverse_order)
+        compute_CSM_Utility_stats(filename,start_datetime,end_datetime, order_by, reverse_order, reports_path)
         print 'Run Time: ' + str(time.time() - start) + '\n'
 
 

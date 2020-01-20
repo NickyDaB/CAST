@@ -63,7 +63,7 @@ endif()
 # Available toplevel directories
 # The DISABLE_TOPLEVELS variable will trim from this list.
 #
-set(ALL_TOPLEVELS extras flightlog utilities transport bb fshipmond fshipd fshipcld csmutil csmnet csmconf scripts csmi csmdb csmd csmrestd csm_big_data export_layout hcdiag bscfs)
+set(ALL_TOPLEVELS extras flightlog utilities transport bb fshipmond fshipd fshipcld csmutil csmnet csmconf scripts csmi csmdb csmd csmrestd csmtest csm_big_data export_layout hcdiag bscfs)
 #set(ALL_TOPLEVELS flightlog utilities transport bb fshipmond fshipd fshipcld export_layout bscfs)
 set(DISABLE_TOPLEVELS "none" CACHE STRING "Disabled toplevels")
 message("Disabled toplevels: ${DISABLE_TOPLEVELS}")

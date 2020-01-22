@@ -1,6 +1,6 @@
 #================================================================================
 #
-#    csmtest/CMakeLists.txt
+#    csmtest/include/CMakeLists.txt
 #
 #  © Copyright IBM Corporation 2015-2020. All Rights Reserved
 #
@@ -13,18 +13,10 @@
 #
 #================================================================================
 
-add_subdirectory(include)
-add_subdirectory(buckets)
-
-# Set up and install the base level dir of the test package.
-# include default files
 
 # non executable files
 file(GLOB INSTALL_FILES
-    "config.template"
-    "csm_test_example_defaults.cfg"
-    "csm_test.cfg"
-    "README.md"
+	"functions.sh"
 )
 
-install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION csm/test)
+install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION csm/test/include)

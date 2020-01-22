@@ -1,6 +1,6 @@
 #================================================================================
 #
-#    csmtest/CMakeLists.txt
+#    csmtest/buckets/analytics/helper_filesCMakeLists.txt
 #
 #  © Copyright IBM Corporation 2015-2020. All Rights Reserved
 #
@@ -13,18 +13,16 @@
 #
 #================================================================================
 
-add_subdirectory(include)
-add_subdirectory(buckets)
-
-# Set up and install the base level dir of the test package.
-# include default files
-
 # non executable files
 file(GLOB INSTALL_FILES
-    "config.template"
-    "csm_test_example_defaults.cfg"
-    "csm_test.cfg"
-    "README.md"
+	"database_clear_allocation_tables.sql"
 )
 
-install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION csm/test)
+install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION csm/test/buckets/analytics/helper_files)
+
+# executable files
+file(GLOB INSTALL_PROGRAMS
+    "testing.sh"
+)
+
+install(PROGRAMS ${INSTALL_PROGRAMS} COMPONENT csm-test DESTINATION csm/test/buckets/analytics/helper_files)

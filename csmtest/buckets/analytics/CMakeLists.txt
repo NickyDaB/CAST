@@ -13,12 +13,13 @@
 #
 #================================================================================
 
-# non executable files
-file(GLOB INSTALL_SCRIPTS
-    "example.txt"
+add_subdirectory(helper_files)
+
+file(GLOB INSTALL_FILES
+  "analytics_log_README.md"
 )
 
-install(FILES ${INSTALL_SCRIPTS} COMPONENT csm-test DESTINATION csm/test/examples)
+install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION /var/log/ibm/csm/fvt_analytics/)
 
 # Files that should be executable when shipped
 
@@ -26,12 +27,6 @@ file(GLOB INSTALL_PROGRAMS
   "core_blinking.sh"
 )
 
-install(PROGRAMS ${INSTALL_PROGRAMS} COMPONENT csm-test DESTINATION csm/test)
-
-file(GLOB INSTALL_DIR
-	""
-)
-
-install(FILES ${INSTALL_DIR} COMPONENT csm-test DESTINATION csm/test/other)
+install(PROGRAMS ${INSTALL_PROGRAMS} COMPONENT csm-test DESTINATION csm/test/buckets/analytics)
 
 # CPACK_RPM settings for the csm-test rpm are managed in csmd/setupRPM.cmake 

@@ -1,7 +1,7 @@
 #================================================================================
-#
-#    csmtest/CMakeLists.txt
-#
+#   
+#    README.md
+# 
 #  © Copyright IBM Corporation 2015-2020. All Rights Reserved
 #
 #    This program is licensed under the terms of the Eclipse Public License
@@ -10,21 +10,10 @@
 #
 #    U.S. Government Users Restricted Rights:  Use, duplication or disclosure
 #    restricted by GSA ADP Schedule Contract with IBM Corp.
-#
+# 
 #================================================================================
 
-add_subdirectory(include)
-add_subdirectory(buckets)
+This file will be copied into: /var/log/ibm/csm/fvt_analytics/
 
-# Set up and install the base level dir of the test package.
-# include default files
+All log files during analytics testing will be copied to this location. 
 
-# non executable files
-file(GLOB INSTALL_FILES
-    "config.template"
-    "csm_test_example_defaults.cfg"
-    "csm_test.cfg"
-    "README.md"
-)
-
-install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION csm/test)

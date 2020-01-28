@@ -15,11 +15,11 @@
 
 add_subdirectory(helper_files)
 
-file(GLOB INSTALL_FILES
+file(GLOB INSTALL_FILES_DIR
   "analytics_log_README.md"
 )
 
-install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION /var/log/ibm/csm/fvt_analytics/)
+install(FILES ${INSTALL_FILES_DIR} COMPONENT csm-test DESTINATION /var/log/ibm/csm/fvt_analytics/)
 
 # Files that should be executable when shipped
 

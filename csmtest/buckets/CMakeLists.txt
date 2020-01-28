@@ -13,4 +13,8 @@
 #
 #================================================================================
 
+add_subdirectory(advanced)
 add_subdirectory(analytics)
+add_subdirectory(basic)
+add_subdirectory(BDS)
+add_subdirectory(error_injection)

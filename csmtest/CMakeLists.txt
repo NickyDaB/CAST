@@ -13,8 +13,15 @@
 #
 #================================================================================
 
-add_subdirectory(include)
+add_subdirectory(analytics)
+add_subdirectory(archive)
+add_subdirectory(big_data)
 add_subdirectory(buckets)
+add_subdirectory(include)
+add_subdirectory(old_rpms)
+add_subdirectory(results)
+add_subdirectory(setup)
+add_subdirectory(tools)
 
 # Set up and install the base level dir of the test package.
 # include default files
@@ -28,3 +35,12 @@ file(GLOB INSTALL_FILES
 )
 
 install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION csm/test)
+
+
+
+
+
+
+# drwxr-xr-x   3 root root  4096 Jan 23 10:30 rpms
+
+

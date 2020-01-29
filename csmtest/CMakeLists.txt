@@ -20,6 +20,7 @@ add_subdirectory(buckets)
 add_subdirectory(include)
 add_subdirectory(old_rpms)
 add_subdirectory(results)
+add_subdirectory(rpms)
 add_subdirectory(setup)
 add_subdirectory(tools)
 

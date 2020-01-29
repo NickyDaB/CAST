@@ -13,10 +13,15 @@
 #
 #================================================================================
 
+add_subdirectory(hcdiag)
+add_subdirectory(json)
+add_subdirectory(prologs)
+add_subdirectory(sql)
 
-# non executable files
-file(GLOB INSTALL_FILES
+# executable files
+file(GLOB INSTALL_SCRIPTS
 	"functions.sh"
+	"jsrun_cmd_test_script.sh"
 )
 
-install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION csm/test/include)
+install(PROGRAMS ${INSTALL_SCRIPTS} COMPONENT csm-test DESTINATION csm/test/include)

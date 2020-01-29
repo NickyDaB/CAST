@@ -1,3 +1,12 @@
+if [ -f "${BASH_SOURCE%/*}/../csm_test.cfg" ]
+then
+        . "${BASH_SOURCE%/*}/../csm_test.cfg"
+else
+        echo "Could not find csm_test.cfg file expected at "${BASH_SOURCE%/*}/../csm_test.cfg", exitting."
+        exit 1
+fi
+
+
 rm -f ${FVT_PATH}/results/test/*.log
 rm -f ${FVT_PATH}/results/buckets/basic/*.log
 rm -f ${FVT_PATH}/results/buckets/advanced/*.log

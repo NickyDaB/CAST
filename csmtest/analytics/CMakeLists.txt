@@ -20,4 +20,4 @@ file(GLOB INSTALL_PROGRAMS
     "timing_processing_tool.py"
 )
 
-install(PROGRAMS ${INSTALL_PROGRAMS} COMPONENT csm-test DESTINATION csm/test/archive)
+install(PROGRAMS ${INSTALL_PROGRAMS} COMPONENT csm-test DESTINATION csm/test/analytics)

@@ -55,7 +55,7 @@ if [ $? -ne 0 ]
 		echo "Install directory not found. Creating " ${INSTALL_DIR}
 		mkdir ${INSTALL_DIR}
 	else
-		echo "Install directory found... continuing installvof RPMs."
+		echo "Install directory found... continuing install of RPMs."
 		#do nothing
 fi
 

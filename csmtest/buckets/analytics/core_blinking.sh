@@ -43,6 +43,9 @@ echo "------------------------------------------------------------" >> ${LOG}
 date >> ${LOG}
 echo "------------------------------------------------------------" >> ${LOG}
 
+echo date > ${TEMP_LOG}
+echo "begin testing..." >> ${TEMP_LOG}
+
 #Important to touch the logs
 #this will cut the current log
 /opt/ibm/csm/sbin/rotate-log-file.sh /etc/ibm/csm/csm_master.cfg

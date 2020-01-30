@@ -43,7 +43,7 @@ echo "------------------------------------------------------------" >> ${LOG}
 date >> ${LOG}
 echo "------------------------------------------------------------" >> ${LOG}
 
-echo date > ${TEMP_LOG}
+date > ${TEMP_LOG}
 echo "begin testing..." >> ${TEMP_LOG}
 
 #Important to touch the logs

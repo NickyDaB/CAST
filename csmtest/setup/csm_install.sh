@@ -47,6 +47,19 @@ compute_node_list=`nodels csm_comp`
 # Get list of utility nodes
 utility_node_list=`nodels utility`
 
+# Check to see if rpm directory exists. 
+# If not, then make it.
+ls ${INSTALL_DIR} > /dev/null 2>&1
+if [ $? -ne 0 ]
+	then
+		echo "Install directory not found. Creating " ${INSTALL_DIR}
+		mkdir ${INSTALL_DIR}
+	else
+		echo "Install directory found... continuing installvof RPMs."
+		#do nothing
+fi
+
+
 #----------------------------------------------------------------------
 # RPM Replace and Download Section
 #----------------------------------------------------------------------

@@ -58,7 +58,7 @@ sleep 60
 
 # Test Case 1: core blinking
 # ${newpath}/helper_files/testing.sh 100 > $TEMP_LOG 2>&1
-/opt/ibm/csm/test/buckets/analytics/helper_files/testing.sh 100 >> $TEMP_LOG 2>&1
+${FVT_PATH}/buckets/analytics/helper_files/testing.sh 100 >> $TEMP_LOG 2>&1
 check_return_exit $? 0 "Test Case 1: Calling testing.sh"
 
 #rm -f ${TEMP_LOG}

@@ -141,7 +141,6 @@ rpm -ivh ${INSTALL_DIR}/ibm-csm-restd-*
 rpm -ivh ${INSTALL_DIR}/ibm-csm-bds-logstash-*
 rpm -ivh ${INSTALL_DIR}/ibm-csm-bds-1*
 rpm -ivh ${INSTALL_DIR}/ibm-csm-tools*
-rpm -ivh ${INSTALL_DIR}/ibm-csm-test*
 
 # Install RPMs on Aggregators
 if [ ${master_node} != ${AGGREGATOR_A} ]

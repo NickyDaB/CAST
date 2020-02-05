@@ -70,7 +70,6 @@ rpm -ivh ${INSTALL_DIR}/ibm-csm-restd-*
 rpm -ivh ${INSTALL_DIR}/ibm-csm-bds-logstash-*
 rpm -ivh ${INSTALL_DIR}/ibm-csm-bds-1*
 rpm -ivh ${INSTALL_DIR}/ibm-csm-tools*
-rpm -ivh ${INSTALL_DIR}/ibm-csm-test*
 
 # Install new CSM RPMs - Aggregator node
 xdcp ${AGGREGATOR_A} -R ${INSTALL_DIR} /root/

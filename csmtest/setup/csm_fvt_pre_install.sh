@@ -21,7 +21,8 @@
 # where the specific test suit rpm is located
 RPM_DIR=/u/nbuonar/repos/CAST/work/rpms
 # record for debugging in the morning
-LOG=csm_fvt_pre_install.log
+LOG_DIR=/test/results/setup
+LOG=${LOG_DIR}/csm_fvt_pre_install.log
 # Get hostname of master node
 master_node=`hostname`
 # some path files
@@ -29,6 +30,18 @@ master_node=`hostname`
 FVT_PATH=/opt/ibm/csm/test
 # we will copy the rpm from the rpm dir into this install dir. then install from this file
 INSTALL_DIR=${FVT_PATH}/rpms
+
+# Check to see if log directory exists. 
+# If not, then make it.
+ls ${LOG_DIR} > /dev/null 2>&1
+if [ $? -ne 0 ]
+	then
+		echo "Log directory not found. Creating " ${LOG_DIR} >> $LOG
+		mkdir ${LOG_DIR} >> $LOG
+	else
+		echo "Log directory found... continuing install of RPMs." >> $LOG
+		#do nothing
+fi
 
 # ===================================
 # BEGIN SCRIPT 

@@ -169,6 +169,28 @@ systemctl restart csmd-master
 echo "Restarting Master daemon" >> ${TEMP_LOG}
 sleep 60
 # ====================================================================================================
+# ====================================================================================================
+#
+# Test Case 6: baseline - 10000 with large database of 10,000 pre records
+# ${newpath}/helper_files/testing.sh 100 > $TEMP_LOG 2>&1
+${FVT_PATH}/buckets/analytics/helper_files/testing.sh -r 10000 -p >> $TEMP_LOG 2>&1
+check_return_exit $? 0 "Test Case 6:baseline - 10000 with large prepopulated database. Calling testing.sh"
+
+#rm -f ${TEMP_LOG}
+
+#Important to touch the logs for analytics
+#cut the current log
+/opt/ibm/csm/sbin/rotate-log-file.sh /etc/ibm/csm/csm_master.cfg
+#it will always save as csm_master.log.old.1
+mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/fvt_analytics/csm_master_baseline_10000_with_large_prepopulated_database.log
+#restart the master daemon to reset the main log file
+systemctl restart csmd-master
+
+#gotta wait to make sure master has been brought back up
+#find a better way
+echo "Restarting Master daemon" >> ${TEMP_LOG}
+sleep 60
+# ====================================================================================================
 
 #eventually run analytics
 python /opt/ibm/csm/tools/API_Statistics.py -p /var/log/ibm/csm/fvt_analytics >> ${TEMP_LOG} 2>&1

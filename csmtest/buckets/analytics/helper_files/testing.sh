@@ -22,9 +22,18 @@ while getopts "r:pt" opt; do
 	  echo "Tracker on."
 	  tracker=1
 	  ;;
+	h)
+	  echo "Usage: getopts [-r arg] [-c] [-t] [-h]"
+	  echo "HELP: "
+	  echo "Summary: This script is a helper for the core blinking bucket. It creates and then deletes an allocation."
+	  echo "-r [run_total] - number of times to run the test"
+	  echo "-p - preserve the database. by default test case wipes database before the test."
+	  echo "-t - enable the progress tracker. by default the tracker is off."
+	  exit 0
+	  ;;
     \?)
       echo "Invalid option: -$OPTARG"
-      echo "Usage: getopts [-r arg] [-c] [-t]"
+      echo "Usage: getopts [-r arg] [-c] [-t] [-h]"
       exit 1
       ;;
   esac

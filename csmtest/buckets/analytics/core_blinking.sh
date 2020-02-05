@@ -63,7 +63,7 @@ sleep 60
 #
 # Test Case 1: baseline - 1
 # ${newpath}/helper_files/testing.sh 100 > $TEMP_LOG 2>&1
-${FVT_PATH}/buckets/analytics/helper_files/testing.sh 1 >> $TEMP_LOG 2>&1
+${FVT_PATH}/buckets/analytics/helper_files/testing.sh -r 1 >> $TEMP_LOG 2>&1
 check_return_exit $? 0 "Test Case 1:baseline - 1 Calling testing.sh"
 
 #rm -f ${TEMP_LOG}
@@ -85,7 +85,7 @@ sleep 60
 #
 # Test Case 2: baseline - 10
 # ${newpath}/helper_files/testing.sh 100 > $TEMP_LOG 2>&1
-${FVT_PATH}/buckets/analytics/helper_files/testing.sh 10 >> $TEMP_LOG 2>&1
+${FVT_PATH}/buckets/analytics/helper_files/testing.sh -r 10 >> $TEMP_LOG 2>&1
 check_return_exit $? 0 "Test Case 2:baseline - 10 Calling testing.sh"
 
 #rm -f ${TEMP_LOG}
@@ -107,7 +107,7 @@ sleep 60
 #
 # Test Case 3: baseline - 100
 # ${newpath}/helper_files/testing.sh 100 > $TEMP_LOG 2>&1
-${FVT_PATH}/buckets/analytics/helper_files/testing.sh 100 >> $TEMP_LOG 2>&1
+${FVT_PATH}/buckets/analytics/helper_files/testing.sh -r 100 >> $TEMP_LOG 2>&1
 check_return_exit $? 0 "Test Case 3:baseline - 100 Calling testing.sh"
 
 #rm -f ${TEMP_LOG}
@@ -129,7 +129,7 @@ sleep 60
 #
 # Test Case 4: baseline - 1000
 # ${newpath}/helper_files/testing.sh 100 > $TEMP_LOG 2>&1
-${FVT_PATH}/buckets/analytics/helper_files/testing.sh 1000 >> $TEMP_LOG 2>&1
+${FVT_PATH}/buckets/analytics/helper_files/testing.sh -r 1000 >> $TEMP_LOG 2>&1
 check_return_exit $? 0 "Test Case 4:baseline - 1000 Calling testing.sh"
 
 #rm -f ${TEMP_LOG}
@@ -151,7 +151,7 @@ sleep 60
 #
 # Test Case 5: baseline - 10000
 # ${newpath}/helper_files/testing.sh 100 > $TEMP_LOG 2>&1
-${FVT_PATH}/buckets/analytics/helper_files/testing.sh 10000 >> $TEMP_LOG 2>&1
+${FVT_PATH}/buckets/analytics/helper_files/testing.sh -r 10000 >> $TEMP_LOG 2>&1
 check_return_exit $? 0 "Test Case 5:baseline - 10000 Calling testing.sh"
 
 #rm -f ${TEMP_LOG}

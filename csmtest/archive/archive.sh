@@ -1,3 +1,12 @@
+# Try to source the configuration file to get global configuration variables
+if [ -f "${BASH_SOURCE%/*}/../csm_test.cfg" ]
+then
+        . "${BASH_SOURCE%/*}/../csm_test.cfg"
+else
+        echo "Could not find csm_test.cfg file expected at "${BASH_SOURCE%/*}/../csm_test.cfg", exitting."
+        exit 1
+fi
+
 RESULTS_DIR=${FVT_PATH}/results
 ARCHIVE_DIR=${FVT_PATH}/archive
 TEMP_LOG=${ARCHIVE_DIR}/archive_tmp.log

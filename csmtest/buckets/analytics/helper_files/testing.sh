@@ -69,7 +69,7 @@ if (($preserve_database == 0))
 then
 	# run the helper script to clear the database
 	psql -d csmdb -U csmdb -f ${FVT_PATH}/buckets/analytics/helper_files/database_clear_allocation_tables.sql 
-else
+fi
 
 
 printf "Begin Test.\n"

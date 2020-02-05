@@ -8,7 +8,7 @@ run_total=0
 preserve_database=0
 tracker=0
 
-while getopts "r:pt" opt; do
+while getopts "r:pth" opt; do
   case $opt in
     r)
       echo "-r was triggered, Parameter: $OPTARG"

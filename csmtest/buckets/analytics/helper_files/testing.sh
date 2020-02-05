@@ -29,6 +29,7 @@ while getopts "r:pth" opt; do
 	  echo "-r [run_total] - number of times to run the test"
 	  echo "-p - preserve the database. by default test case wipes database before the test."
 	  echo "-t - enable the progress tracker. by default the tracker is off."
+	  echo "-h - display the help."
 	  exit 0
 	  ;;
     \?)

@@ -3,6 +3,35 @@
 
 echo Begin Script.         # This is a comment, too!
 
+#global vars
+run_total=0
+preserve_database=0
+tracker=0
+
+while getopts "r:pt" opt; do
+  case $opt in
+    r)
+      echo "-r was triggered, Parameter: $OPTARG"
+      run_total=$OPTARG
+      ;;
+    p)
+	  echo "Preserve database."
+	  preserve_database=1
+	  ;;
+	t)
+	  echo "Tracker on."
+	  tracker=1
+	  ;;
+    \?)
+      echo "Invalid option: -$OPTARG"
+      exit 1
+      ;;
+    *)
+      echo "Usage: getopts [-r arg] [-c] [-t]"
+      ;;
+  esac
+done
+
 # env vars should already be defined because of water fvt nightly regression 
 
 # old paths. sourced via config file. I want to leave these here for future reference in case something gets messed up. 
@@ -20,26 +49,33 @@ else
         exit 1
 fi
 
-# run the helper script to clear the database
-psql -d csmdb -U csmdb -f ${FVT_PATH}/buckets/analytics/helper_files/database_clear_allocation_tables.sql 
+# by default clear the database before we run our testing
+# user can override via flag
+if (($preserve_database == 0))
+then
+	# run the helper script to clear the database
+	psql -d csmdb -U csmdb -f ${FVT_PATH}/buckets/analytics/helper_files/database_clear_allocation_tables.sql 
+else
 
 
 printf "Begin Test.\n"
 #printf "Progress: %i",
 
-for ((i=1 ; i <= $1 ; i++))
+for ((i=1 ; i <= $run_total ; i++))
 do
 	#echo Round: $i
-
-	#simple tracker bar
-	if(($i % 10 == 0))
+	if(($tracker == 1))
 	then
-		printf "$i\n"
-	elif(($i % 5 == 0))
-	then
-		printf "$i"
-	else
-		printf "."
+		#simple tracker bar
+		if(($i % 10 == 0))
+		then
+			printf "$i\n"
+		elif(($i % 5 == 0))
+		then
+			printf "$i"
+		else
+			printf "."
+		fi
 	fi
 
 	# Create an allocation

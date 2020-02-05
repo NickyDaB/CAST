@@ -8,9 +8,10 @@ run_total=0
 preserve_database=0
 tracker=0
 
-while getopts "r:pth" opt; do
-  case $opt in
-    r)
+function process_options
+{
+	case $option in
+	r)
       echo "-r was triggered, Parameter: $OPTARG"
       run_total=$OPTARG
       ;;
@@ -32,12 +33,17 @@ while getopts "r:pth" opt; do
 	  echo "-h - display the help."
 	  exit 0
 	  ;;
-    \?)
+    *)
       echo "Invalid option: -$OPTARG"
       echo "Usage: getopts [-r arg] [-c] [-t] [-h]"
       exit 1
       ;;
-  esac
+  	esac
+}
+
+while getopts "r:pth" option
+do
+	process_options
 done
 
 # env vars should already be defined because of water fvt nightly regression 

@@ -22,12 +22,10 @@ while getopts "r:pt" opt; do
 	  echo "Tracker on."
 	  tracker=1
 	  ;;
-    # \?)
-    #   echo "Invalid option: -$OPTARG"
-    #   exit 1
-    #   ;;
-    *)
+    \?)
+      echo "Invalid option: -$OPTARG"
       echo "Usage: getopts [-r arg] [-c] [-t]"
+      exit 1
       ;;
   esac
 done

@@ -35,6 +35,8 @@ csm.init_lib()
 configf = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir, "csm_test.cfg"))
 config = open(str(configf),"r")
 for line in config:
+    if "export FVT_PATH=" in line: 
+        fvt_path = line[16:len(line)-1]
     if "LOG_PATH" in line: 
         log_path = line[16:len(line)-1]
     if "COMPUTE_NODES" in line:
@@ -42,7 +44,7 @@ for line in config:
 config.close()
 
 # Open Log file
-log = open(str(log_path) + "/buckets/advanced/allocation_timing.log","w")
+log = open(str(fvt_path) + "/results/buckets/advanced/allocation_timing.log","w")
 
 # Create an allocation and capture timing information in log based on allocation_create_input_t object
 def create_timed_allocation(alloc_input):

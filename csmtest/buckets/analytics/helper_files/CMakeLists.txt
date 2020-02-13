@@ -23,6 +23,7 @@ install(FILES ${INSTALL_FILES} COMPONENT csm-test DESTINATION csm/test/buckets/a
 # executable files
 file(GLOB INSTALL_PROGRAMS
     "testing.sh"
+    "core_on.sh"
 )
 
 install(PROGRAMS ${INSTALL_PROGRAMS} COMPONENT csm-test DESTINATION csm/test/buckets/analytics/helper_files)

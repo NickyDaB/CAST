@@ -99,7 +99,7 @@ do
 	# job id doesnt matter, set to 1 every time
 	# allocate the compute nodes
 	# send log to temp file
-	${CSM_PATH}/csm_allocation_create -j 1 -n ${COMPUTE_NODES} > ${LOG_PATH}/analytics_allocation_create.log
+	${CSM_PATH}/csm_allocation_create -j 1 -n ${COMPUTE_NODES} --isolated_cores 1 > ${LOG_PATH}/analytics_allocation_create.log
 	# Grab & Store Allocation ID from csm_allocation_create.log
 	allocation_id=`grep allocation_id ${LOG_PATH}/analytics_allocation_create.log | awk -F': ' '{print $2}'`
 	#remove the temp log file

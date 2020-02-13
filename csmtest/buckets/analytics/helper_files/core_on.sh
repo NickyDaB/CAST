@@ -1,6 +1,9 @@
 #!/bin/sh
 # This is a comment!
 
+
+# Script to help test core isolation, core blinking, and smt mode.
+
 echo Begin Script.         # This is a comment, too!
 
 #global vars

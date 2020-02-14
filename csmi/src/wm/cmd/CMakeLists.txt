@@ -21,6 +21,12 @@ install(TARGETS csm_allocation_create COMPONENT csm-api DESTINATION csm/bin)
 target_include_directories(csm_allocation_create PRIVATE ./)
 target_link_libraries(csm_allocation_create csmi csm_network_c csmutil)
 
+# cmd line interface for allocation_create fvt 0 to blink
+add_executable(csm_allocation_create_fvt_0_to_blink allocation_create.c)
+install(TARGETS csm_allocation_create_fvt_0_to_blink COMPONENT csm-test DESTINATION csm/bin)
+target_include_directories(csm_allocation_create PRIVATE ./)
+target_link_libraries(csm_allocation_create csmi csm_network_c csmutil)
+
 # cmd line interface for allocation_delete
 add_executable(csm_allocation_delete allocation_delete.c)
 install(TARGETS csm_allocation_delete COMPONENT csm-api DESTINATION csm/bin)

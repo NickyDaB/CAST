@@ -313,7 +313,7 @@ int main(int argc, char *argv[])
 	}
     
     // Execute the api
-    return_value = fvt_allocation_create_reset(&csm_obj, allocation);
+    return_value = csm_fvt_allocation_create_reset(&csm_obj, allocation);
     if ( return_value == CSMI_SUCCESS ) 
     {
     

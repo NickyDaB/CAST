@@ -49,9 +49,9 @@
         }                                                               \
     }           
 
-static const csmi_cmd_t expected_cmd = CSM_CMD_allocation_create;
+static const csmi_cmd_t expected_cmd = CSM_CMD_fvt_allocation_create_reset;
 
-int fvt_allocation_create_reset(
+int csm_fvt_allocation_create_reset(
     csm_api_object **handle, 
     API_PARAMETER_INPUT_TYPE *input)
 {

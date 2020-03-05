@@ -221,6 +221,37 @@ systemctl restart csmd-master
 echo "Restarting Master daemon" >> ${TEMP_LOG}
 sleep 60
 # ====================================================================================================
+# ====================================================================================================
+#
+# Test Case 8: 0 -> 1 - blink the core 10 times
+# Now here. We want to test some core blinking stuff.
+# By default there is no system c group.
+# aka 
+# --isolated_cores = 0
+# going from 0 to any number causes a core blink to happen. which we expect to have a large time footprint. 
+# this test case we want to see that happening
+# we are going from 0 to 1 in this test
+# we will run it 10 times
+#
+# ${newpath}/helper_files/testing.sh 100 > $TEMP_LOG 2>&1
+${FVT_PATH}/buckets/analytics/helper_files/core_on.sh -r 10 >> $TEMP_LOG 2>&1
+check_return_exit $? 0 "Test Case 8: 0 -> 1 - blink the core 10 times. Calling core_on.sh"
+
+#rm -f ${TEMP_LOG}
+
+#Important to touch the logs for analytics
+#cut the current log
+/opt/ibm/csm/sbin/rotate-log-file.sh /etc/ibm/csm/csm_master.cfg
+#it will always save as csm_master.log.old.1
+mv /var/log/ibm/csm/csm_master.log.old.1 /var/log/ibm/csm/fvt_analytics/csm_master_0_to_1_blink_core_10_times.log
+#restart the master daemon to reset the main log file
+systemctl restart csmd-master
+
+#gotta wait to make sure master has been brought back up
+#find a better way
+echo "Restarting Master daemon" >> ${TEMP_LOG}
+sleep 60
+# ====================================================================================================
 
 #eventually run analytics
 python /opt/ibm/csm/tools/API_Statistics.py -p /var/log/ibm/csm/fvt_analytics >> ${TEMP_LOG} 2>&1

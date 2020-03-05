@@ -23,7 +23,7 @@ target_link_libraries(csm_allocation_create csmi csm_network_c csmutil)
 
 # cmd line interface for fvt_allocation_create_reset
 add_executable(fvt_allocation_create_reset fvt_allocation_create_reset.c)
-install(TARGETS fvt_allocation_create_reset COMPONENT csm-test DESTINATION csm/bin)
+install(TARGETS fvt_allocation_create_reset COMPONENT csm-api DESTINATION csm/bin)
 target_include_directories(fvt_allocation_create_reset PRIVATE ./)
 target_link_libraries(fvt_allocation_create_reset csmi csm_network_c csmutil)
 

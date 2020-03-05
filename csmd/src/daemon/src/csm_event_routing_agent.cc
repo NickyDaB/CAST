@@ -38,6 +38,7 @@ void EventRoutingAgent::RegisterHandlers()
    Register<CSMIAllocationStepCGROUPCreate>(CSM_CMD_allocation_step_cgroup_create);
    Register<CSMIAllocationStepCGROUPDelete>(CSM_CMD_allocation_step_cgroup_delete);
    Register<CSMICGROUPLogin>(CSM_CMD_cgroup_login);
+   Register<CSMIFVTAllocationCreateReset_Agent>(CSM_CMD_fvt_allocation_create_reset);
       
    //CSM_CMD_allocation_step_end
    //for csm infrastructure testing

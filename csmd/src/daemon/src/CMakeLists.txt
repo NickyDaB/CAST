@@ -139,6 +139,7 @@ file(GLOB CSM_DAEMON_SRC
   csmi_request_handler/helpers/Agent.cc
   csmi_request_handler/helpers/AgentHandler.cc
   csmi_request_handler/helpers/DataAggregators.cc
+  csmi_request_handler/CSMIFVTAllocationCreateReset.cc
 
   # Stateful Classes:
   csmi_request_handler/csmi_handler_context.cc

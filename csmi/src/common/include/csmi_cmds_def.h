@@ -93,12 +93,14 @@ cmd(soft_failure_recovery)
 // Added in CSM v1.5.0
 cmd(ssd_wear_update)
 
+//Added in CSM v1.8.0
+cmd(fvt_allocation_create_reset) // for internal use only. reset for test case.
+
 // new APIS should go here by adding the new API immediately above this line
 // and removing the first reserved_NN that appears after MAX_REGULAR
 cmd(MAX_REGULAR)
 
 // reserved cmd IDS
-cmd(reserved_66)
 cmd(reserved_67)
 cmd(reserved_68)
 cmd(reserved_69)

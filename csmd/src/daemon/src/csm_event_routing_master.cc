@@ -86,6 +86,7 @@ void EventRoutingMaster::RegisterHandlers()
    Register<CSMISwitchChildrenInventoryCollection>(CSM_CMD_switch_children_inventory_collection);
    Register<CSMISoftFailureRecovery_Master>(CSM_CMD_soft_failure_recovery);
    //Register<AllocationInst>(csm_allocation_get);
+   Register<CSMIFVTAllocationCreateReset_Master>(CSM_CMD_fvt_allocation_create_reset);
 
    // for csm infrastructure testing
    CSMI_BASE_sptr infraTest = Register<CSM_INFRASTRUCTURE_TEST_MASTER>(CSM_infrastructure_test);

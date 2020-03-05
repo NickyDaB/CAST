@@ -118,6 +118,8 @@ extern "C" {
  * @ref CSMERR_CGROUP_EACCES    | The cgroup parameter received an illegal resource value.
  */
 int csm_allocation_create(csm_api_object **handle, csm_allocation_create_input_t *input);
+//internal testing only. for reseting system to a state that requires core blinking without adding to allocation create metrics. 
+int csm_fvt_allocation_create_reset(csm_api_object **handle, csm_allocation_create_input_t *input);
 
 /** @ingroup wm_apis
  *  @brief Used by the workload manager to delete an existing allocation.

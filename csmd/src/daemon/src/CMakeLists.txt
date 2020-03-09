@@ -163,6 +163,7 @@ file(GLOB CSM_DAEMON_SRC
 
   csmi_request_handler/CSMIStepUpdateAgent.cc
   csmi_request_handler/CSMIAllocationAgentUpdateState.cc
+  csmi_request_handler/CSMIAllocationResetAgentUpdateState.cc
   csmi_request_handler/CSMISoftFailureRecovery.cc
   csmi_request_handler/CSMISoftFailureRecoveryAgentState.cc
 

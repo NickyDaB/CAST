@@ -15,7 +15,7 @@
 
 #include "CSMIFVTAllocationCreateReset.h"
 
-#include "CSMIAllocationAgentUpdateState.h"
+#include "CSMIAllocationResetAgentUpdateState.h"
 #include "csmi_mcast/CSMIMcastResponder.h"
 #include "csmi_mcast/CSMIMcastSpawner.h"
 #include "csmi_mcast/CSMIMcastTerminal.h"
@@ -644,7 +644,7 @@ CSMIFVTAllocationCreateReset_Agent::CSMIFVTAllocationCreateReset_Agent( csm::dae
     ResizeStates( 1 );
 
     SetState( 0,
-        new AllocationAgentUpdateState(
+        new AllocationResetAgentUpdateState(
             1,
             1,
             1));

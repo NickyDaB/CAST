@@ -39,7 +39,7 @@
 #define OUTPUT_STRUCT 
 #define CMD_ID CSM_CMD_fvt_allocation_create_reset
 
-#define MCAST_PROPS_PAYLOAD CSMIMcastAllocation
+#define MCAST_PROPS_PAYLOAD CSMIMcastAllocation_reset
 #define EXTRA_STATES 6
 #define SPAWN_STATE STATEFUL_DB_RECV_DB + 1
 const int MCAST_SPAWN    = SPAWN_STATE;                     // 3 - Spawns a multicast message.
@@ -614,7 +614,7 @@ bool CSMIFVTAllocationCreateReset_Master::CreateByteArray(
 bool CSMIFVTAllocationCreateReset_Master::ParseStatsQuery(
     csm::daemon::EventContextHandlerState_sptr& ctx,
     const std::vector<csm::db::DBTuple *>& tuples,
-    CSMIMcastAllocation* mcastProps) 
+    CSMIMcastAllocation_reset* mcastProps) 
 {
     if ( mcastProps )
     {

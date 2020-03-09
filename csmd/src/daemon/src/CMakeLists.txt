@@ -159,6 +159,7 @@ file(GLOB CSM_DAEMON_SRC
   csmi_request_handler/csmi_mcast/CSMIMcastAllocation.cc
   csmi_request_handler/csmi_mcast/CSMIMcastStep.cc
   csmi_request_handler/csmi_mcast/CSMIMcastSoftFailureRecovery.cc
+  csmi_request_handler/csmi_mcast/CSMIMcastAllocation_reset.cc
 
   csmi_request_handler/CSMIStepUpdateAgent.cc
   csmi_request_handler/CSMIAllocationAgentUpdateState.cc

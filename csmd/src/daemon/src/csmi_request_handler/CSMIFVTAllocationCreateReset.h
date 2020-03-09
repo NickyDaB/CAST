@@ -21,7 +21,7 @@
 #define __CSMI_FVT_ALLOCATION_CREATE_RESET__
 
 #include "csmi_stateful_db.h"
-#include "csmi_mcast/CSMIMcastAllocation_reset.h"
+#include "csmi_mcast/CSMIMcastAllocation_reset_reset.h"
 
 /**
  * @brief A stateful handler for Allocation Create on the Master Daemon.
@@ -87,7 +87,7 @@ public:
      */
     static csm::db::DBReqContent* UndoAllocationDB(
         csm::daemon::EventContextHandlerState_sptr& ctx,
-        CSMIMcastAllocation* mcastProps);
+        CSMIMcastAllocation_reset* mcastProps);
     
     /**
      * @brief Generates a database payload to insert aggregated statistics.
@@ -103,7 +103,7 @@ public:
      */
     static csm::db::DBReqContent* InsertStatsStatement(
         csm::daemon::EventContextHandlerState_sptr& ctx,
-        CSMIMcastAllocation* mcastProps);
+        CSMIMcastAllocation_reset* mcastProps);
 
     /**
      * @brief The terminal state for a failure to create an allocation.
@@ -175,7 +175,7 @@ public:
     static inline bool PerformMulticast(
         csm::daemon::EventContextHandlerState_sptr& ctx,
         const std::vector<csm::db::DBTuple *>& tuples,
-        CSMIMcastAllocation* mcastProps) 
+        CSMIMcastAllocation_reset* mcastProps) 
     {
         bool success = true;
         // Typically speaking this should be true.
@@ -214,7 +214,7 @@ public:
     static  bool ParseStatsQuery(
         csm::daemon::EventContextHandlerState_sptr& ctx,
         const std::vector<csm::db::DBTuple *>& tuples,
-        CSMIMcastAllocation* mcastProps);
+        CSMIMcastAllocation_reset* mcastProps);
 };
 
 /**

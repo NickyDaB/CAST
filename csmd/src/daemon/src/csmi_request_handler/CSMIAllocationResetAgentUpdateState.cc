@@ -562,7 +562,7 @@ int AllocationResetAgentUpdateState::RegisterAllocation( int64_t allocationId, c
     std::string allocationString(username);
     allocationString.append(";").append(std::to_string(allocationId)).append("\n");
 
-    std::ofstream activelistStream(CSM_ACTIVELIST);
+    std::ofstream activelistStream(CSM_ACTIVELIST_RESET);
     try
     {
         activelistStream << allocationString;
@@ -594,8 +594,8 @@ int AllocationResetAgentUpdateState::RemoveAllocation( int64_t allocationId )
     int errorCode = 0;
     std::string aId = std::to_string(allocationId);
 
-    std::ifstream activelistStream(CSM_ACTIVELIST);
-    std::ofstream activelistSwapStream(CSM_ACTIVELIST_SWAP);
+    std::ifstream activelistStream(CSM_ACTIVELIST_RESET);
+    std::ofstream activelistSwapStream(CSM_ACTIVELIST_SWAP_RESET);
 
     try
     {
@@ -618,8 +618,8 @@ int AllocationResetAgentUpdateState::RemoveAllocation( int64_t allocationId )
             activelistSwapStream.close();
             
             // Swap the temporary list with the official one.
-            std::remove(CSM_ACTIVELIST);
-            if ( std::rename(CSM_ACTIVELIST_SWAP, CSM_ACTIVELIST) )
+            std::remove(CSM_ACTIVELIST_RESET);
+            if ( std::rename(CSM_ACTIVELIST_SWAP_RESET, CSM_ACTIVELIST_RESET) )
                 LOG( csmapi, warning ) <<  "Allocation ID: " << std::to_string(allocationId)
                 << "; Message: Activelist couldn't be swapped;";
         }

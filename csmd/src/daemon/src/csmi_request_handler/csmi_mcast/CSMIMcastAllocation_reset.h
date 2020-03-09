@@ -29,7 +29,7 @@
 //#include <map>
 
 // Build the error map table.
-struct CSMIAllocErrorComparator
+struct CSMIAllocResetErrorComparator
 {
     int map(int val) const
     {
@@ -62,7 +62,7 @@ struct CSMIAllocErrorComparator
  * @tparam DataStruct The allocation create/delete/update multicast context.
  */
 template<>
-CSMIMcast<STRUCT_TYPE, CSMIAllocErrorComparator>::~CSMIMcast();
+CSMIMcast<STRUCT_TYPE, CSMIAllocResetErrorComparator>::~CSMIMcast();
 
 /** @brief Builds a specialized payload to handle allocation create/delete multicast payloads.
  *
@@ -72,7 +72,7 @@ CSMIMcast<STRUCT_TYPE, CSMIAllocErrorComparator>::~CSMIMcast();
  * @param[out] bufferLength The length of the @p bufferLength payload.
  */
 template<>
-void CSMIMcast<STRUCT_TYPE, CSMIAllocErrorComparator>::BuildMcastPayload(char** buffer, uint32_t* bufferLength);
+void CSMIMcast<STRUCT_TYPE, CSMIAllocResetErrorComparator>::BuildMcastPayload(char** buffer, uint32_t* bufferLength);
 
 /**
  * @brief Generates a unique iSMIAllocErrorComparator
@@ -81,11 +81,11 @@ void CSMIMcast<STRUCT_TYPE, CSMIAllocErrorComparator>::BuildMcastPayload(char** 
  * @return A string containing the unique identifier for the multicast.
  */
 template<>
-std::string CSMIMcast<STRUCT_TYPE, CSMIAllocErrorComparator>::GenerateIdentifierString();
+std::string CSMIMcast<STRUCT_TYPE, CSMIAllocResetErrorComparator>::GenerateIdentifierString();
 
 /** @brief A typedef for @ref csmi_allocation_mcast_context_t specializations of @ref CSMIMcast.
  */
-typedef CSMIMcast<STRUCT_TYPE, CSMIAllocErrorComparator> CSMIMcastAllocation_reset;
+typedef CSMIMcast<STRUCT_TYPE, CSMIAllocResetErrorComparator> CSMIMcastAllocation_reset;
 
 namespace csm{
 namespace mcast{

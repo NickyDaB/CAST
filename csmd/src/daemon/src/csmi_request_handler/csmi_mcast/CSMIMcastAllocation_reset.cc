@@ -17,7 +17,7 @@
 
 
 template<>
-CSMIMcast<STRUCT_TYPE, CSMIAllocErrorComparator>::~CSMIMcast()
+CSMIMcast<STRUCT_TYPE, CSMIAllocResetErrorComparator>::~CSMIMcast()
 {
     if(_Data)
     {
@@ -27,7 +27,7 @@ CSMIMcast<STRUCT_TYPE, CSMIAllocErrorComparator>::~CSMIMcast()
 }
 
 template<>
-void CSMIMcast<STRUCT_TYPE,CSMIAllocErrorComparator>::BuildMcastPayload(char** buffer, uint32_t* bufferLength)
+void CSMIMcast<STRUCT_TYPE,CSMIAllocResetErrorComparator>::BuildMcastPayload(char** buffer, uint32_t* bufferLength)
 {
     // Generate the leaner allocation payload.
     csmi_allocation_mcast_payload_request_t *allocPayload = nullptr;
@@ -93,7 +93,7 @@ void CSMIMcast<STRUCT_TYPE,CSMIAllocErrorComparator>::BuildMcastPayload(char** b
 }
 
 template<>
-std::string CSMIMcast<STRUCT_TYPE, CSMIAllocErrorComparator>::GenerateIdentifierString()
+std::string CSMIMcast<STRUCT_TYPE, CSMIAllocResetErrorComparator>::GenerateIdentifierString()
 {
     std::string idString = "Allocation ID: ";
     if ( _Data )

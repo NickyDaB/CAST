@@ -30,8 +30,8 @@
 #define PROLOG_RAS(message)  this->PushRASEvent(ctx, postEventList, message,\
     respPayload->hostname, ctx->GetErrorMessage(), "rc=" + std::to_string(ctx->GetErrorCode()));
 
-const char* CSM_ACTIVELIST = "/etc/pam.d/csm/activelist";
-const char* CSM_ACTIVELIST_SWAP = "/etc/pam.d/csm/activelist.swp";
+const char* CSM_ACTIVELIST_RESET = "/etc/pam.d/csm/activelist";
+const char* CSM_ACTIVELIST_SWAP_RESET = "/etc/pam.d/csm/activelist.swp";
 
 #define STATE_NAME "AllocationResetAgentUpdateState:"
 

@@ -21,7 +21,7 @@
 #define __CSMI_FVT_ALLOCATION_CREATE_RESET__
 
 #include "csmi_stateful_db.h"
-#include "csmi_mcast/CSMIMcastAllocation_reset_reset.h"
+#include "csmi_mcast/CSMIMcastAllocation_reset.h"
 
 /**
  * @brief A stateful handler for Allocation Create on the Master Daemon.

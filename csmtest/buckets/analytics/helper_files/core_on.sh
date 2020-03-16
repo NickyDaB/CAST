@@ -112,15 +112,15 @@ do
 
 
 	#reset back to non isolation
-	${CSM_PATH}/fvt_allocation_create_reset -j 1 -n ${COMPUTE_NODES} --isolated_cores 0 > ${LOG_PATH}/analytics_fvt_allocation_create_reset.log
+	#${CSM_PATH}/fvt_allocation_create_reset -j 1 -n ${COMPUTE_NODES} --isolated_cores 0 > ${LOG_PATH}/analytics_fvt_allocation_create_reset.log
 	# Grab & Store Allocation ID from csm_allocation_create.log
-	allocation_id=`grep allocation_id ${LOG_PATH}/analytics_fvt_allocation_create_reset.log | awk -F': ' '{print $2}'`
+	#allocation_id=`grep allocation_id ${LOG_PATH}/analytics_fvt_allocation_create_reset.log | awk -F': ' '{print $2}'`
 	#remove the temp log file
-	rm -f ${LOG_PATH}/analytics_fvt_allocation_create_reset.log
+	#rm -f ${LOG_PATH}/analytics_fvt_allocation_create_reset.log
 	#delete that allocation
-	${CSM_PATH}/csm_allocation_delete -a ${allocation_id} > ${LOG_PATH}/analytics_allocation_delete.log
+	#${CSM_PATH}/csm_allocation_delete -a ${allocation_id} > ${LOG_PATH}/analytics_allocation_delete.log
 	#remove the temp log file
-	rm -f ${LOG_PATH}/analytics_allocation_delete.log
+	#rm -f ${LOG_PATH}/analytics_allocation_delete.log
 	#echo allocation_id: $allocation_id completed.
 
 done

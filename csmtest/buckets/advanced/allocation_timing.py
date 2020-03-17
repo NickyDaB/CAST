@@ -164,6 +164,48 @@ for x in range(5):
 # End combo tests
 #========
 
+#========
+# Test to compare with an smt mode = 1
+#========
+
+print("begin smt 1: ") 
+
+alloc_input.smt_mode=1
+
+# reset back to 0 state
+alloc_input.isolated_cores=0
+id=create_timed_allocation(alloc_input)
+# Delete Allocation
+alloc_delete_input.allocation_id=id
+delete_allocation(alloc_delete_input)
+
+
+# iterate over the start isolated core
+# x is the number of isolated cores we start from
+for x in range(5):
+  print("start: ",x) 
+  # then iterate over the isolated core we want to transition into
+  # y is the number of isolated cores we want to finish in
+  for y in range(5):
+    print(" transition: ",y)
+
+    # set up start condition x
+    alloc_input.isolated_cores=x
+    id=create_timed_allocation(alloc_input)
+    # Delete Allocation
+    alloc_delete_input.allocation_id=id
+    delete_allocation(alloc_delete_input)
+
+    # Create Allocation with isolated_cores = y
+    alloc_input.isolated_cores=y
+    id=create_timed_allocation(alloc_input)
+    # Delete Allocation
+    alloc_delete_input.allocation_id=id
+    delete_allocation(alloc_delete_input)
+
+#========
+# End combo tests
+#========
 
 
 # Clean up handler and term lib

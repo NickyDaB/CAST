@@ -207,6 +207,61 @@ for x in range(5):
 # End combo tests
 #========
 
+#========
+# Test to check max iso cores
+#========
+
+# reset back to plain
+alloc_input.smt_mode=0
+
+# reset back to 0 state
+alloc_input.isolated_cores=0
+id=create_timed_allocation(alloc_input)
+# Delete Allocation
+alloc_delete_input.allocation_id=id
+delete_allocation(alloc_delete_input)
+
+# begin tests
+alloc_input.isolated_cores=21
+id=create_timed_allocation(alloc_input)
+# Delete Allocation
+alloc_delete_input.allocation_id=id
+delete_allocation(alloc_delete_input)
+
+alloc_input.isolated_cores=22
+id=create_timed_allocation(alloc_input)
+# Delete Allocation
+alloc_delete_input.allocation_id=id
+delete_allocation(alloc_delete_input)
+
+alloc_input.isolated_cores=23
+id=create_timed_allocation(alloc_input)
+# Delete Allocation
+alloc_delete_input.allocation_id=id
+delete_allocation(alloc_delete_input)
+
+# begin tests
+alloc_input.isolated_cores=43
+id=create_timed_allocation(alloc_input)
+# Delete Allocation
+alloc_delete_input.allocation_id=id
+delete_allocation(alloc_delete_input)
+
+alloc_input.isolated_cores=44
+id=create_timed_allocation(alloc_input)
+# Delete Allocation
+alloc_delete_input.allocation_id=id
+delete_allocation(alloc_delete_input)
+
+alloc_input.isolated_cores=45
+id=create_timed_allocation(alloc_input)
+# Delete Allocation
+alloc_delete_input.allocation_id=id
+delete_allocation(alloc_delete_input)
+
+#========
+# End tests
+#========
 
 # Clean up handler and term lib
 csm.api_object_destroy(handler)
